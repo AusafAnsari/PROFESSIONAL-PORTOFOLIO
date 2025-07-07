@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import os
 import uuid
+import gunicorn
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
@@ -166,4 +167,4 @@ def new_project():
     return render_template('admin/new_project.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,host='0.0.0.0',port=5000)
